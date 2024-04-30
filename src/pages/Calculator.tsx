@@ -48,7 +48,7 @@ export default function CalculatorPage(): ReactElement {
     <div className='mx-auto mt-4 w-full p-4 md:mt-12 md:grid md:w-[68rem] md:max-w-full md:grid-cols-5'>
       <div className='md:col-span-2 md:mr-8'>
         <h1 className='mb-6 text-3xl font-extrabold leading-none tracking-tight text-black'>
-          CFPB Salary Calculator
+          CFPB Salary Estimator
         </h1>
         <p className='mb-6'>
           NTEU and CFPB are currently negotiating a compensation agreement for
@@ -69,7 +69,7 @@ export default function CalculatorPage(): ReactElement {
         <div className='relative z-10 border border-gray-900 bg-white p-6 sm:rounded-md'>
           <form>
             <h2 className='mb-3 text-xl font-extrabold'>
-              Calculate your compensation under the proposal
+              Estimate your compensation under the proposal
             </h2>
             <label className='mb-4 block'>
               <span className='text-gray-700'>
@@ -133,7 +133,7 @@ export default function CalculatorPage(): ReactElement {
                 onClick={onSubmit}
                 className='focus:shadow-outline h-10 rounded-lg bg-indigo-700 px-5 text-white transition-colors duration-150 hover:bg-indigo-800 active:bg-violet-700'
               >
-                Calculate
+                Estimate
               </button>
             </div>
             <p className='mt-3 text-sm'>
@@ -158,7 +158,7 @@ export default function CalculatorPage(): ReactElement {
           }
         >
           <h2 className='mb-4 text-xl font-extrabold leading-none tracking-tight text-black'>
-            Your compensation:
+            Your estimated compensation:
           </h2>
           <div className='mb-4'>
             <strong>2024:</strong>{' '}

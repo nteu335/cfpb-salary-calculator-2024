@@ -16,4 +16,4 @@ Calculations are in [`calculations.ts`](src/calculations.ts) and the UI is in [`
 
 ## Deployment
 
-A GitHub workflow automatically deploys to a staging surge.sh domain when `main` is pushed. Deplying to nteu335.org requires transfering files via FTP.
+A GitHub workflow automatically deploys to a staging surge.sh domain when `main` is pushed. Deploying to nteu335.org requires transfering files via FTP.
