@@ -374,8 +374,9 @@ export default function CalculatorPage(): ReactElement {
             <strong>
               <sup>5</sup>ECI:
             </strong>{' '}
-            The 2026 merit increase will be equal to 2025's yet-to-be-released
-            Employment Cost Index (ECI). For reference, 2023's ECI was 3.6%.
+            The 2026 merit increase will be equal to 2026's yet-to-be-released
+            Employment Cost Index (ECI). The Bureau estimates ECI for 2026 will
+            be 3.6%. For reference, 2024 ECI was 4.6% and 2025 ECI will be 4.8%.
           </p>
           <p className='mb-4'>
             <strong>
