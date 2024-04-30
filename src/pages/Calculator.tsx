@@ -38,7 +38,7 @@ export default function CalculatorPage(): ReactElement {
       }
     }
     if (event.target.name === 'base') {
-      p[event.target.name] = event.target.value.replace(/\D/g, '')
+      p[event.target.name] = event.target.value.replace(/[^\d.]/g, '')
     } else {
       p[event.target.name] = event.target.value
     }
@@ -72,7 +72,9 @@ export default function CalculatorPage(): ReactElement {
               Calculate your compensation under the proposal
             </h2>
             <label className='mb-4 block'>
-              <span className='text-gray-700'>Your current base salary*:</span>
+              <span className='text-gray-700'>
+                Your current base salary<sup>1</sup>:
+              </span>
               <input
                 name='base'
                 onChange={onChange}
@@ -164,18 +166,18 @@ export default function CalculatorPage(): ReactElement {
               <span className='tooltip -mt-32 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
                 {formatUSD({ amount: salary.salary2023base, decimalPlaces: 2 })}{' '}
                 base salary in 2023
-                <br />+ 5% merit increase*
+                <br />+ 5% merit increase<sup>1</sup>
                 <br />={' '}
                 {formatUSD({
                   amount: salary.salary2024base,
                   decimalPlaces: 2
                 })}{' '}
-                base salary<sup>#</sup> for 2024
+                base salary<sup>2</sup> for 2024
                 <br />+ {salary.locality2023}% locality rate for{' '}
                 {salary.localityName} in 2023
                 <br />={' '}
                 <span className='bg-yellow-200'>{salary.salary2024}</span> total
-                salary<sup>‡</sup> for 2024
+                salary<sup>4</sup> for 2024
               </span>
               <span className='bg-yellow-200'>{salary.salary2024}</span>
             </span>{' '}
@@ -200,12 +202,14 @@ export default function CalculatorPage(): ReactElement {
             </span>{' '}
             merit{' '}
             <span className='whitespace-nowrap'>
-              bonus* +{' '}
+              bonus<sup>1</sup> +{' '}
               <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
                 <span className='tooltip -mt-28 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
-                  {formatUSD({ amount: salary.base, decimalPlaces: 2 })} base
-                  salary in 2023
-                  <br />+ 5% merit increase*<sup>#</sup>
+                  {formatUSD({
+                    amount: salary.salary2024base,
+                    decimalPlaces: 2
+                  })}{' '}
+                  base salary for 2024
                   <br />x {salary.localityDiff}% (diff between 2024 and 2023
                   rate)
                   <br />={' '}
@@ -213,7 +217,7 @@ export default function CalculatorPage(): ReactElement {
                     amount: salary.localityLumpSum,
                     decimalPlaces: 2
                   })}{' '}
-                  lump sum (paid in three parts)<sup>¶</sup>
+                  lump sum (paid in three parts)<sup>6</sup>
                 </span>
                 {formatUSD({
                   amount: salary.localityLumpSum,
@@ -221,7 +225,7 @@ export default function CalculatorPage(): ReactElement {
                 })}
               </span>
             </span>{' '}
-            locality increase lump sum paid in three parts<sup>¶</sup>
+            locality increase lump sum paid in three parts<sup>6</sup>
           </div>
           <div className='mb-4'>
             <strong>2025:</strong>{' '}
@@ -235,12 +239,12 @@ export default function CalculatorPage(): ReactElement {
                   amount: salary.salary2025base,
                   decimalPlaces: 2
                 })}{' '}
-                base salary<sup>#</sup> for 2025
-                <br />+ {salary.locality2024}% estimated locality<sup>†</sup>{' '}
+                base salary<sup>2</sup> for 2025
+                <br />+ {salary.locality2024}% estimated locality<sup>3</sup>{' '}
                 for {salary.localityName} in 2025
                 <br />={' '}
                 <span className='bg-yellow-200'>{salary.salary2025}</span> total
-                salary<sup>‡</sup> for 2025
+                salary<sup>4</sup> for 2025
               </span>
               <span className='bg-yellow-200'>{salary.salary2025}</span>
             </span>{' '}
@@ -272,18 +276,18 @@ export default function CalculatorPage(): ReactElement {
                 {formatUSD({ amount: salary.salary2025base, decimalPlaces: 2 })}{' '}
                 base salary in 2025
                 <br />+ 3.6% estimated merit increase
-                <sup>§</sup>
+                <sup>5</sup>
                 <br />={' '}
                 {formatUSD({
                   amount: salary.salary2026base,
                   decimalPlaces: 2
                 })}{' '}
-                base salary<sup>#</sup> for 2026
-                <br />+ {salary.locality2025}% estimated locality<sup>†</sup>{' '}
+                base salary<sup>2</sup> for 2026
+                <br />+ {salary.locality2025}% estimated locality<sup>3</sup>{' '}
                 for {salary.localityName} in 2026
                 <br />={' '}
                 <span className='bg-yellow-200'>{salary.salary2026}</span> total
-                salary<sup>‡</sup> for 2026
+                salary<sup>4</sup> for 2026
               </span>
               <span className='bg-yellow-200'>{salary.salary2026}</span>
             </span>{' '}
@@ -318,13 +322,15 @@ export default function CalculatorPage(): ReactElement {
             Notes:
           </h2>
           <div className='mb-4'>
-            <strong>*2024 merit lump sums:</strong> Both the 2024 merit increase
-            and 2024 merit bonus will be paid as lump sums as soon as
-            administratively feasible (within 4 months).
+            <strong>
+              <sup>1</sup>2024 merit lump sums:
+            </strong>{' '}
+            Both the 2024 merit increase and 2024 merit bonus will be paid as
+            lump sums as soon as administratively feasible (within 4 months).
           </div>
           <div className='mb-4'>
             <strong>
-              <sup>#</sup>Pay band maximums:
+              <sup>2</sup>Pay band maximums:
             </strong>{' '}
             Your pay band (CN-{salary.band}) has a maximum <em>base</em> salary
             of{' '}
@@ -344,11 +350,13 @@ export default function CalculatorPage(): ReactElement {
             })}{' '}
             in 2026. You will not receive merit increases once you reach this
             limit but you will still receive locality rate adjustments and merit
-            bonuses.
+            bonuses. If you are at your pay band maximum, you will receive
+            another lump sum in lieu of the merit increase that is on top of the
+            merit increase lump sum.
           </div>
           <p className='mb-4'>
             <strong>
-              <sup>†</sup>Locality rates:
+              <sup>3</sup>Locality rates:
             </strong>{' '}
             2025 and 2026 locality rates will be based on yet-to-be-released GS
             locality rates for those years. The 2024 rate is used in the above
@@ -356,21 +364,22 @@ export default function CalculatorPage(): ReactElement {
           </p>
           <div className='mb-4'>
             <strong>
-              <sup>‡</sup>Salary cap:
+              <sup>4</sup>Salary cap:
             </strong>{' '}
             There is a <em>total</em> salary cap of $255,000 across all pay
-            bands that cannot be exceeded.
+            bands that cannot be exceeded. If you are at the salary cap, you
+            will receive a lump sum in lieu of the merit increase.
           </div>
           <p className='mb-4'>
             <strong>
-              <sup>§</sup>ECI:
+              <sup>5</sup>ECI:
             </strong>{' '}
             The 2026 merit increase will be equal to 2025's yet-to-be-released
             Employment Cost Index (ECI). For reference, 2023's ECI was 3.6%.
           </p>
           <p className='mb-4'>
             <strong>
-              <sup>¶</sup>Locality increase lump sums:
+              <sup>6</sup>Locality increase lump sums:
             </strong>{' '}
             The 2024 locality rate will be paid in three lump sums over 2024.
             The first part will be paid as soon as administratively feasible,
