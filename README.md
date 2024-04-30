@@ -13,3 +13,7 @@ Calculations are in [`calculations.ts`](src/calculations.ts) and the UI is in [`
 - `yarn test` - Run unit and integration tests related to changed files based on git.
 - `yarn format` - Format all files with Prettier.
 - `yarn lint` - Runs TypeScript, ESLint and Stylelint.
+
+## Deployment
+
+A GitHub workflow automatically deploys to a staging surge.sh domain.
