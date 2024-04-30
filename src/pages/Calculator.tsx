@@ -18,7 +18,7 @@ export default function CalculatorPage(): ReactElement {
       base: parameters.get('base') ?? '0',
       locality: parameters.get('locality') ?? 'ZX'
     }
-    p.base = Number(p.base.replace(/\D/g, ''))
+    p.base = Number(p.base.replace(/[^\d.]/g, ''))
 
     if (p.base) {
       document.querySelector('#required-error')?.classList.add('hidden')

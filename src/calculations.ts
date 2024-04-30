@@ -462,7 +462,7 @@ function getSalary({ band, base, locality = 'ZX' }: SalaryParameters): Salary {
   const localityDiff =
     Math.round((localityInfo['2024'] - localityInfo['2023']) * 100) / 100
 
-  const localityLumpSum = basePay * 1.05 * (localityDiff / 100)
+  const localityLumpSum = salary2024base * 1.05 * (localityDiff / 100)
 
   const bonus2024 = salary2023 * 0.03 + 4000
   const bonus2025 = salary2024 * 0.02 + 3500
