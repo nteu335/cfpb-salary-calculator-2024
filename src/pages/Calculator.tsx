@@ -363,11 +363,13 @@ export default function CalculatorPage(): ReactElement {
                 : 'hidden'
             }
           >
-            <strong>
-              If you hit your pay band maximum<sup>2</sup> in any given year
-            </strong>
-            , you will receive a lump sum in lieu of a merit increase. You will
-            still receive locality rate adjustments and merit bonuses.
+            <span className='bg-yellow-200'>
+              You have hit your pay band maximum<sup>2</sup> for one or more of
+              the above years.
+            </span>{' '}
+            Because of this, you will receive a lump sum in lieu of a merit
+            increase for those years. You will still receive locality rate
+            adjustments and merit bonuses.
           </div>
           <div className='mb-4'>
             All employees will receive a $75 health insurance subsidy in 2024
