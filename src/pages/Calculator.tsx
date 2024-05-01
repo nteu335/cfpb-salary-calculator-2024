@@ -53,7 +53,11 @@ export default function CalculatorPage(): ReactElement {
         <p className='mb-6'>
           After several months of intense negotiation, including months of talks
           before a federal mediator and outstanding engagement from bargaining
-          unit members (thank you!), <a href="https://nteu335.org/2024/05/01/whats-in-the-2024-tentative-compensation-agreement/">
+          unit members (thank you!), 
+          <a 
+            href='https://nteu335.org/2024/05/01/whats-in-the-2024-tentative-compensation-agreement/'
+            className='text-violet-700 underline hover:decoration-dotted'
+          >
             NTEU and CFPB's bargaining teams have reached a new tentative compensation agreement</a>.
         </p>
         <p className='mb-6'>
