@@ -51,19 +51,20 @@ export default function CalculatorPage(): ReactElement {
           CFPB Salary Estimator
         </h1>
         <p className='mb-6'>
-          NTEU and CFPB are currently negotiating a compensation agreement for
-          years 2024, 2025 and 2026. Raises were due at the start of January,
-          but CFPB still hasn’t agreed to basic terms with our union on annual
-          raises.
+          After several months of intense negotiation, including months of talks 
+          before a federal mediator, on top of outstanding engagement from members 
+          (thank you!), NTEU and CFPB’s bargaining teams reached a new 
+          compensation agreement.
         </p>
-        <h2 className='mb-6 text-2xl font-extrabold'>More content goes here</h2>
-        <p className='mb-6'>blah blah blah</p>
-        <h2 className='mb-6 text-2xl font-extrabold'>More content goes here</h2>
-        <p className='mb-6'>blah blah blah</p>
         <h2 className='mb-6 text-2xl font-extrabold'>
           Dues-paying members: vote now!
         </h2>
-        <p className='mb-6'>Put instructions and a link here to vote.</p>
+        <p className='mb-6'>
+          The ratification vote will be held online between May 1, 2024 2 pm ET and 
+          May 7, 2024 11:59 pm PT. NTEU 335 dues-paying members can vote at 
+          https://nteu335.org/2024/05/01/ratification-vote-on-2024-2026-compensation-agreement/. 
+          If you're eligible and you haven't joined NTEU 335 yet, join now at https://nteu335.org/join/!
+        </p>
       </div>
       <div className='md:col-span-3'>
         <div className='relative z-10 border border-gray-900 bg-white p-6 sm:rounded-md'>
