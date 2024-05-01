@@ -341,6 +341,21 @@ export default function CalculatorPage(): ReactElement {
             </span>{' '}
             merit bonus
           </div>
+          <div
+            className={
+              salary.salary2024base === salary.bandCap2024 ||
+              salary.salary2025base === salary.bandCap2025 ||
+              salary.salary2026base === salary.bandCap2026
+                ? 'mb-4'
+                : 'hidden'
+            }
+          >
+            <strong>
+              If you hit your pay band maximum<sup>2</sup> in any given year
+            </strong>
+            , you will receive a lump sum in lieu of a merit increase. You will
+            still receive locality rate adjustments and merit bonuses.
+          </div>
           <div className='mb-4'>
             All employees will receive a $75 health insurance subsidy in 2024
             ($85 in 2025 and 2026) per pay period. Employees with a total salary
@@ -377,11 +392,9 @@ export default function CalculatorPage(): ReactElement {
               amount: salary.bandCap2026,
               decimalPlaces: 2
             })}{' '}
-            in 2026. You will not receive merit increases once you reach this
-            limit but you will still receive locality rate adjustments and merit
-            bonuses. If you are at your pay band maximum, you will receive
-            another lump sum in lieu of the merit increase that is on top of the
-            merit increase lump sum.
+            in 2026. You will receive a lump sum <em>in lieu of</em> a merit
+            increase once you reach this limit and you will still receive
+            locality rate adjustments and merit bonuses.
           </div>
           <p className='mb-4'>
             <strong>
