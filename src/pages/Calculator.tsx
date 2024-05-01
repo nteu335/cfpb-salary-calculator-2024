@@ -93,6 +93,19 @@ export default function CalculatorPage(): ReactElement {
           </a>
           !
         </p>
+        <p className='mb-6'>
+          <small>
+            <em>
+              Are you a software developer?{' '}
+              <a
+                href='https://github.com/nteu335/cfpb-salary-calculator-2024'
+                className='text-violet-700 underline hover:decoration-dotted'
+              >
+                Help us maintain this tool.
+              </a>
+            </em>
+          </small>
+        </p>
       </div>
       <div className='md:col-span-3'>
         <div className='relative z-10 border border-gray-900 bg-white p-6 sm:rounded-md'>
@@ -102,7 +115,7 @@ export default function CalculatorPage(): ReactElement {
             </h2>
             <label className='mb-4 block'>
               <span className='text-gray-700'>
-                Your current base salary<sup>1</sup>:
+                Your current <strong>base</strong> salary*:
               </span>
               <input
                 name='base'
