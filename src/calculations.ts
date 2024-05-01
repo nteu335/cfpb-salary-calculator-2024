@@ -315,7 +315,7 @@ const LOCALITIES: Locality = {
   },
   PX: {
     name: 'Phoenix',
-    2023: 10.75,
+    2023: 11.35,
     2024: 11.93
   },
   PI: {
