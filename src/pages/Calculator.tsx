@@ -51,21 +51,32 @@ export default function CalculatorPage(): ReactElement {
           CFPB Salary Estimator
         </h1>
         <p className='mb-6'>
-          After several months of intense negotiation, including months of talks 
-          before a federal mediator, on top of outstanding engagement from members 
-          (thank you!), NTEU and CFPB’s bargaining teams reached a new 
+          After several months of intense negotiation, including months of talks
+          before a federal mediator, on top of outstanding engagement from
+          members (thank you!), NTEU and CFPB’s bargaining teams reached a new
           compensation agreement.
         </p>
         <h2 className='mb-6 text-2xl font-extrabold'>
           Dues-paying members: vote now!
         </h2>
         <p className='mb-6'>
-          The ratification vote will be held online between May 1, 2024 2 pm ET and 
-          May 7, 2024 11:59 pm PT, with a hybrid chapter on May 7, 2024 12 pm ET. 
-          NTEU 335 dues-paying members can <a href="https://nteu335.org/2024/05/01/ratification-vote-on-2024-2026-compensation-agreement/">
-            vote online during the voting time period</a>. If you're eligible and 
-          you haven't become a dues-paying member yet, <a href="https://nteu335.org/join/">
-            join NTEU 335 now so you can vote</a>!
+          The ratification vote will be held online between May 1, 2024 2 pm ET
+          and May 7, 2024 11:59 pm PT, with a hybrid chapter on May 7, 2024 12
+          pm ET. NTEU 335 dues-paying members can{' '}
+          <a
+            href='https://nteu335.org/2024/05/01/ratification-vote-on-2024-2026-compensation-agreement/'
+            className='text-violet-700 underline hover:decoration-dotted'
+          >
+            vote online during the voting time period
+          </a>
+          . If you're eligible and you haven't become a dues-paying member yet,{' '}
+          <a
+            href='https://nteu335.org/join/'
+            className='text-violet-700 underline hover:decoration-dotted'
+          >
+            join NTEU 335 now so you can vote
+          </a>
+          !
         </p>
       </div>
       <div className='md:col-span-3'>
@@ -144,7 +155,7 @@ export default function CalculatorPage(): ReactElement {
               <a
                 href='https://hrconnect.treasury.gov'
                 target='_blank'
-                className='underline'
+                className='text-violet-700 underline hover:decoration-dotted'
                 rel='noreferrer'
               >
                 HRConnect
