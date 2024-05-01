@@ -425,6 +425,9 @@ interface Salary {
   bandCap2024: number
   bandCap2025: number
   bandCap2026: number
+  ilo2024: number
+  ilo2025: number
+  ilo2026: number
 }
 
 function getSalary({ band, base, locality = 'ZX' }: SalaryParameters): Salary {
@@ -468,6 +471,43 @@ function getSalary({ band, base, locality = 'ZX' }: SalaryParameters): Salary {
   const bonus2025 = salary2024 * 0.02 + 3500
   const bonus2026 = salary2025 * 0.02 + 3000
 
+  const ilo2024 = Math.max(
+    0,
+    (salary2023base * 1.05 -
+      Math.min(
+        bandCap2024,
+        Math.max(
+          CAPS['2024'] / (1 + localityInfo['2024'] / 100),
+          salary2023base
+        )
+      )) *
+      (1 + localityInfo['2024'] / 100)
+  )
+  const ilo2025 = Math.max(
+    0,
+    (salary2024base * 1.048 -
+      Math.min(
+        bandCap2025,
+        Math.max(
+          CAPS['2025'] / (1 + localityInfo['2024'] / 100),
+          salary2024base
+        )
+      )) *
+      (1 + localityInfo['2024'] / 100)
+  )
+  const ilo2026 = Math.max(
+    0,
+    (salary2025base * 1.036 -
+      Math.min(
+        bandCap2026,
+        Math.max(
+          CAPS['2026'] / (1 + localityInfo['2024'] / 100),
+          salary2025base
+        )
+      )) *
+      (1 + localityInfo['2024'] / 100)
+  )
+
   return {
     band: payBand,
     base: basePay,
@@ -492,7 +532,10 @@ function getSalary({ band, base, locality = 'ZX' }: SalaryParameters): Salary {
     bonus2026: formatUSD({ amount: bonus2026, decimalPlaces: 2 }),
     bandCap2024,
     bandCap2025,
-    bandCap2026
+    bandCap2026,
+    ilo2024,
+    ilo2025,
+    ilo2026
   }
 }
 

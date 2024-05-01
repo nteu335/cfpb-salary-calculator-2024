@@ -205,7 +205,7 @@ export default function CalculatorPage(): ReactElement {
           <div className='mb-4'>
             <strong>2024:</strong>{' '}
             <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
-              <span className='tooltip -mt-32 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
+              <span className='tooltip width-[75vw] left-[8vw] -mt-32 rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
                 {formatUSD({ amount: salary.salary2023base, decimalPlaces: 2 })}{' '}
                 base salary in 2023
                 <br />+ 5% merit increase<sup>1</sup>
@@ -225,7 +225,7 @@ export default function CalculatorPage(): ReactElement {
             </span>{' '}
             salary +{' '}
             <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
-              <span className='tooltip -mt-28 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
+              <span className='tooltip width-[75vw] left-[8vw] -mt-28 rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
                 {formatUSD({ amount: salary.salary2023, decimalPlaces: 2 })}{' '}
                 total salary in 2023
                 <br />x 3%
@@ -242,37 +242,48 @@ export default function CalculatorPage(): ReactElement {
                 decimalPlaces: 2
               })}
             </span>{' '}
-            merit{' '}
-            <span className='whitespace-nowrap'>
-              bonus<sup>1</sup> +{' '}
+            merit bonus<sup>1</sup> +{' '}
+            <span className={salary.ilo2024 ? '' : 'hidden'}>
               <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
-                <span className='tooltip -mt-28 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
-                  {formatUSD({
-                    amount: salary.salary2024base,
-                    decimalPlaces: 2
-                  })}{' '}
-                  base salary for 2024
-                  <br />x {salary.localityDiff}% (diff between 2024 and 2023
-                  rate)
-                  <br />={' '}
-                  {formatUSD({
-                    amount: salary.localityLumpSum,
-                    decimalPlaces: 2
-                  })}{' '}
-                  lump sum (paid in three parts)<sup>6</sup>
+                <span className='tooltip width-[75vw] left-[8vw] -mt-32 max-w-[300px] rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
+                  You have hit your pay band maximum<sup>2</sup> for this year
+                  so you will receive a lump sum in lieu of a merit increase.
+                  You will still receive locality rate adjustments and merit
+                  bonuses.
                 </span>
+                {formatUSD({
+                  amount: salary.ilo2024,
+                  decimalPlaces: 2
+                })}
+              </span>{' '}
+              lump sum in lieu of a merit increase +{' '}
+            </span>
+            <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
+              <span className='tooltip width-[75vw] left-[8vw] -mt-20 rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
+                {formatUSD({
+                  amount: salary.salary2024base,
+                  decimalPlaces: 2
+                })}{' '}
+                base salary for 2024
+                <br />x {salary.localityDiff}% (diff between 2024 and 2023 rate)
+                <br />={' '}
                 {formatUSD({
                   amount: salary.localityLumpSum,
                   decimalPlaces: 2
-                })}
+                })}{' '}
+                lump sum (paid in three parts)<sup>6</sup>
               </span>
+              {formatUSD({
+                amount: salary.localityLumpSum,
+                decimalPlaces: 2
+              })}
             </span>{' '}
             locality increase lump sum paid in three parts<sup>6</sup>
           </div>
           <div className='mb-4'>
             <strong>2025:</strong>{' '}
             <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
-              <span className='tooltip -mt-32 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
+              <span className='tooltip width-[75vw] left-[8vw] -mt-32 rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
                 {formatUSD({ amount: salary.salary2024base, decimalPlaces: 2 })}{' '}
                 base salary in 2024
                 <br />+ 4.8% merit increase
@@ -282,8 +293,8 @@ export default function CalculatorPage(): ReactElement {
                   decimalPlaces: 2
                 })}{' '}
                 base salary<sup>2</sup> for 2025
-                <br />+ {salary.locality2024}% estimated locality<sup>3</sup>{' '}
-                for {salary.localityName} in 2025
+                <br />+ {salary.locality2024}% locality<sup>3</sup> for{' '}
+                {salary.localityName} in 2025
                 <br />={' '}
                 <span className='bg-yellow-200'>{salary.salary2025}</span> total
                 salary<sup>4</sup> for 2025
@@ -292,7 +303,7 @@ export default function CalculatorPage(): ReactElement {
             </span>{' '}
             salary +{' '}
             <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
-              <span className='tooltip -mt-28 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
+              <span className='tooltip width-[75vw] left-[8vw] -mt-28 rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
                 {formatUSD({ amount: salary.salary2024, decimalPlaces: 2 })}{' '}
                 total salary in 2024
                 <br />x 2%
@@ -310,11 +321,28 @@ export default function CalculatorPage(): ReactElement {
               })}
             </span>{' '}
             merit bonus
+            <span className={salary.ilo2025 ? '' : 'hidden'}>
+              {' '}
+              +{' '}
+              <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
+                <span className='tooltip width-[75vw] left-[8vw] -mt-32 max-w-[300px] rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
+                  You have hit your pay band maximum<sup>2</sup> for this year
+                  so you will receive a lump sum in lieu of a merit increase.
+                  You will still receive locality rate adjustments and merit
+                  bonuses.
+                </span>
+                {formatUSD({
+                  amount: salary.ilo2025,
+                  decimalPlaces: 2
+                })}
+              </span>{' '}
+              lump sum in lieu of a merit increase
+            </span>
           </div>
           <div className='mb-4'>
             <strong>2026:</strong>{' '}
             <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
-              <span className='tooltip -mt-32 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
+              <span className='tooltip width-[75vw] left-[8vw] -mt-32 rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
                 {formatUSD({ amount: salary.salary2025base, decimalPlaces: 2 })}{' '}
                 base salary in 2025
                 <br />+ 3.6% estimated merit increase
@@ -325,8 +353,8 @@ export default function CalculatorPage(): ReactElement {
                   decimalPlaces: 2
                 })}{' '}
                 base salary<sup>2</sup> for 2026
-                <br />+ {salary.locality2025}% estimated locality<sup>3</sup>{' '}
-                for {salary.localityName} in 2026
+                <br />+ {salary.locality2025}% locality<sup>3</sup> for{' '}
+                {salary.localityName} in 2026
                 <br />={' '}
                 <span className='bg-yellow-200'>{salary.salary2026}</span> total
                 salary<sup>4</sup> for 2026
@@ -335,7 +363,7 @@ export default function CalculatorPage(): ReactElement {
             </span>{' '}
             salary +{' '}
             <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
-              <span className='tooltip -mt-28 -ml-20 w-max rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg'>
+              <span className='tooltip width-[75vw] left-[8vw] -mt-28 rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
                 {formatUSD({ amount: salary.salary2025, decimalPlaces: 2 })}{' '}
                 total salary in 2025
                 <br />x 2%
@@ -353,23 +381,23 @@ export default function CalculatorPage(): ReactElement {
               })}
             </span>{' '}
             merit bonus
-          </div>
-          <div
-            className={
-              salary.salary2024base === salary.bandCap2024 ||
-              salary.salary2025base === salary.bandCap2025 ||
-              salary.salary2026base === salary.bandCap2026
-                ? 'mb-4'
-                : 'hidden'
-            }
-          >
-            <span className='bg-yellow-200'>
-              You have hit your pay band maximum<sup>2</sup> for one or more of
-              the above years.
-            </span>{' '}
-            Because of this, you will receive a lump sum in lieu of a merit
-            increase for those years. You will still receive locality rate
-            adjustments and merit bonuses.
+            <span className={salary.ilo2026 ? '' : 'hidden'}>
+              {' '}
+              +{' '}
+              <span className='has-tooltip underline decoration-dotted hover:decoration-solid'>
+                <span className='tooltip width-[75vw] left-[8vw] -mt-32 max-w-[300px] rounded border border-gray-900 bg-gray-100 p-2 text-sm shadow-lg md:left-auto md:-ml-20 md:w-max'>
+                  You have hit your pay band maximum<sup>2</sup> for this year
+                  so you will receive a lump sum in lieu of a merit increase.
+                  You will still receive locality rate adjustments and merit
+                  bonuses.
+                </span>
+                {formatUSD({
+                  amount: salary.ilo2026,
+                  decimalPlaces: 2
+                })}
+              </span>{' '}
+              lump sum in lieu of a merit increase
+            </span>
           </div>
           <div className='mb-4'>
             All employees will receive a $75 health insurance subsidy in 2024
