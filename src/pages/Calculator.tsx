@@ -61,9 +61,11 @@ export default function CalculatorPage(): ReactElement {
         </h2>
         <p className='mb-6'>
           The ratification vote will be held online between May 1, 2024 2 pm ET and 
-          May 7, 2024 11:59 pm PT. NTEU 335 dues-paying members can vote at 
-          https://nteu335.org/2024/05/01/ratification-vote-on-2024-2026-compensation-agreement/. 
-          If you're eligible and you haven't joined NTEU 335 yet, join now at https://nteu335.org/join/!
+          May 7, 2024 11:59 pm PT, with a hybrid chapter on May 7, 2024 12 pm ET. 
+          NTEU 335 dues-paying members can <a href="https://nteu335.org/2024/05/01/ratification-vote-on-2024-2026-compensation-agreement/">
+            vote online during the voting time period</a>. If you're eligible and 
+          you haven't become a dues-paying member yet, <a href="https://nteu335.org/join/">
+            join NTEU 335 now so you can vote</a>!
         </p>
       </div>
       <div className='md:col-span-3'>
