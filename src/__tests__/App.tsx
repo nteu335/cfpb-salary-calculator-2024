@@ -8,7 +8,7 @@ describe('<App />', () => {
     renderWithProviders(<App />, false)
 
     await expect(
-      screen.findByText('CFPB Salary Calculator')
+      screen.findByText('NTEU 335 Salary Estimator')
     ).resolves.toBeInTheDocument()
   })
 })

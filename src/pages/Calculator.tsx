@@ -48,13 +48,21 @@ export default function CalculatorPage(): ReactElement {
     <div className='mx-auto mt-4 w-full p-4 md:mt-12 md:grid md:w-[68rem] md:max-w-full md:grid-cols-5'>
       <div className='md:col-span-2 md:mr-8'>
         <h1 className='mb-6 text-3xl font-extrabold leading-none tracking-tight text-black'>
-          CFPB Salary Estimator
+          NTEU 335 Salary Estimator
         </h1>
         <p className='mb-6'>
           After several months of intense negotiation, including months of talks
-          before a federal mediator, on top of outstanding engagement from
-          members (thank you!), NTEU and CFPB’s bargaining teams reached a new
-          compensation agreement.
+          before a federal mediator and outstanding engagement from bargaining
+          unit members (thank you!), NTEU and CFPB's bargaining teams have
+          reached a new tentative compensation agreement.
+        </p>
+        <p className='mb-6'>
+          This tool may be used by CFPB employees of all pay bands to estimate
+          their 2024, 2025 and 2026 CFPB salaries and bonuses.{' '}
+          <strong>
+            This tool can only provide estimates and your actual compensation
+            may be different.
+          </strong>
         </p>
         <h2 className='mb-6 text-2xl font-extrabold'>
           Dues-paying members: vote now!
@@ -83,7 +91,7 @@ export default function CalculatorPage(): ReactElement {
         <div className='relative z-10 border border-gray-900 bg-white p-6 sm:rounded-md'>
           <form>
             <h2 className='mb-3 text-xl font-extrabold'>
-              Estimate your compensation under the proposal
+              Estimate your CFPB compensation
             </h2>
             <label className='mb-4 block'>
               <span className='text-gray-700'>
