@@ -74,7 +74,7 @@ export default function CalculatorPage(): ReactElement {
         <h2 className='mb-6 text-2xl font-extrabold'>
           Dues-paying members: vote now!
         </h2>
-        <p className='mb-6'>
+        <p className='mb-4'>
           The ratification vote will be held online between May 1, 2024 2 pm ET
           and May 7, 2024 11:59 pm PT, with a hybrid chapter on May 7, 2024 12
           pm ET. NTEU 335 dues-paying members can{' '}
@@ -93,7 +93,7 @@ export default function CalculatorPage(): ReactElement {
           </a>
           !
         </p>
-        <p className='mb-6'>
+        <p className='mb-4'>
           <small>
             <em>
               Are you a software developer?{' '}
@@ -102,6 +102,24 @@ export default function CalculatorPage(): ReactElement {
                 className='text-violet-700 underline hover:decoration-dotted'
               >
                 Help us maintain this tool.
+              </a>
+            </em>
+          </small>
+        </p>
+        <p className='mb-6'>
+          <small>
+            <em>
+              Get your very own limited edition{' '}
+              <img
+                src={logo}
+                alt='NTEU 335 Skully'
+                className='inline-block w-[20px]'
+              />{' '}
+              <a
+                href='https://forms.gle/2F79QYTkS8Dj5tB18'
+                className='text-violet-700 underline hover:decoration-dotted'
+              >
+                Skully t-shirt!
               </a>
             </em>
           </small>
