@@ -228,6 +228,11 @@ const LOCALITIES: Locality = {
     2023: 16.12,
     2024: 16.57
   },
+  FN: {
+    name: 'Fresno',
+    2023: 4.05,
+    2024: 11.91
+  },
   HB: {
     name: 'Harrisburg',
     2023: 9.57,
@@ -333,10 +338,20 @@ const LOCALITIES: Locality = {
     2023: 9.43,
     2024: 9.96
   },
+  RN: {
+    name: 'Reno',
+    2023: 4.05,
+    2024: 11.04
+  },
   RI: {
     name: 'Richmond',
     2023: 10.85,
     2024: 11.38
+  },
+  RT: {
+    name: 'Rochester',
+    2023: 4.05,
+    2024: 16.58
   },
   SA: {
     name: 'Sacramento',
@@ -367,6 +382,11 @@ const LOCALITIES: Locality = {
     name: 'Saint Louis',
     2023: 10.49,
     2024: 11.02
+  },
+  SN: {
+    name: 'Spokane',
+    2023: 4.05,
+    2024: 12.81
   },
   TU: {
     name: 'Tucson',
